@@ -16,19 +16,19 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'REECON | Premium Home Appliances',
-  description: 'Discover premium home appliances crafted with integrity and unbeatable value',
-  generator: 'v0.app',
+  title: 'REECON',
+  description: 'REECON',
+  generator: 'independent.app',
   icons: {
     icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
+      // {
+      //   url: '/icon-light-32x32.png',
+      //   media: '(prefers-color-scheme: light)',
+      // },
+      // {
+      //   url: '/icon-dark-32x32.png',
+      //   media: '(prefers-color-scheme: dark)',
+      // },
       {
         url: '/icon.svg',
         type: 'image/svg+xml',
