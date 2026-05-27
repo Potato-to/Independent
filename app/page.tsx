@@ -179,25 +179,25 @@ function HeroSection() {
 
   const slides = [
     {
-      title: "强大",
-      subtitle: "灵活",
-      accent: "超值",
-      description: "为您的生活空间带来极致体验",
-      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
+      title: "幻影",
+      subtitle: "极光之境",
+      accent: "前瞻美学",
+      description: "紫蓝交融的流光艺术，为现代厨房注入无限前卫灵感。让每次烹饪都成为一场视觉盛宴。",
+      image: "/网站素材/其他素材(选着使用）/紫+蓝(1).jpg",
     },
     {
-      title: "精致",
-      subtitle: "优雅",
-      accent: "品质",
-      description: "每一个细节都彰显匠心工艺",
-      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80",
+      title: "澎湃",
+      subtitle: "炽热匠心",
+      accent: "极致性能",
+      description: "炽热的正红色泽，蕴含高达1500W的澎湃搅拌动力。用激情重塑食物的无限可能。",
+      image: "/网站素材/其他素材(选着使用）/红2(1).jpg",
     },
     {
-      title: "创新",
-      subtitle: "智能",
-      accent: "便捷",
-      description: "科技与美学的完美融合",
-      image: "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=1200&q=80",
+      title: "曜境",
+      subtitle: "深邃纯粹",
+      accent: "臻品奢享",
+      description: "极致深邃的曜黑质感，低调中尽显奢华。德系简约几何美学，致敬纯粹生活方式。",
+      image: "/网站素材/其他素材(选着使用）/黑色(1).jpg",
     },
   ]
 
@@ -585,7 +585,7 @@ function FeaturedBanner() {
           className="relative rounded-2xl md:rounded-3xl overflow-hidden"
         >
           <img
-            src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1400&q=80"
+            src="/网站素材/FuFu/SLD-CM-2503-5L.7.png"
             alt="Featured collection"
             className="w-full h-[300px] md:h-[450px] object-cover"
           />
@@ -607,9 +607,9 @@ function FeaturedBanner() {
                 transition={{ delay: 0.3 }}
                 className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-background"
               >
-                全新系列
+                经典重塑
                 <br />
-                智���厨电
+                FuFu 5L 智能厨师机
               </motion.h3>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -617,7 +617,7 @@ function FeaturedBanner() {
                 transition={{ delay: 0.4 }}
                 className="text-background/80 text-sm md:text-base hidden md:block"
               >
-                探索我们最新推出的智能厨房电器系列，让烹饪���得更加轻松愉快。
+                搭载新一代恒温智控系统与5升精工金刚机身，轻音高效揉面，唤醒食物最初的香气。限时尊享艺术礼遇。
               </motion.p>
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
@@ -644,9 +644,9 @@ function CategoryGrid() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   const categories = [
-    { name: "搅拌机", count: "24 款产品", image: "https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=600&q=80" },
-    { name: "料理机", count: "18 款产品", image: "https://images.unsplash.com/photo-1585515320310-259814833e62?w=600&q=80" },
-    { name: "食品加工机", count: "12 款产品", image: "https://images.unsplash.com/photo-1594385208974-2e75f8d7bb48?w=600&q=80" },
+    { name: "厨师机系列", count: "24 款专业机型", image: "/网站素材/Stand mixer/1570ML/1570bm (5).png" },
+    { name: "高效研磨机", count: "18 款商用研磨", image: "/网站素材/grinder/3405.1322.png" },
+    { name: "轻便打蛋器", count: "12 款便携系列", image: "/网站素材/egg beater/3040.17.png" },
   ]
 
   return (
@@ -705,9 +705,9 @@ function Footer() {
             transition={{ duration: 0.5 }}
             className="col-span-2 md:col-span-1 space-y-4"
           >
-            <h3 className="text-xl md:text-2xl font-serif font-bold">REECON</h3>
+            <h3 className="text-xl md:text-2xl font-serif font-bold"></h3>
             <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
-              Reecon Poland 拥有15年的欧洲市场经验，垂直整合制造，为全球消费者提供高品质、高性价比的智能家居电器。
+              拥有15年的欧洲市场经验，垂直整合制造，为全球消费者提供高品质、高性价比的智能家居电器。
             </p>
           </motion.div>
 
@@ -769,17 +769,17 @@ function Footer() {
 // Main Page Component
 export default function HomePage() {
   const bestSellerProducts = [
-    { name: "Pro Blender B03", category: "搅拌机", image: "https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=600&q=80", price: "¥1,299", originalPrice: "¥1,599", badge: "热卖" },
-    { name: "Smart Mixer B06", category: "搅拌机", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80", price: "¥1,899", badge: "新品" },
-    { name: "Power Blend R25", category: "搅拌机", image: "https://images.unsplash.com/photo-1585515320310-259814833e62?w=600&q=80", price: "¥2,199" },
-    { name: "Chef Pro E01", category: "食品加工机", image: "https://images.unsplash.com/photo-1594385208974-2e75f8d7bb48?w=600&q=80", price: "¥1,499", originalPrice: "¥1,899", badge: "-20%" },
+    { name: "旗舰厨师机 1511R", category: "厨师机", image: "/网站素材/Stand mixer/1511-1R/1511-1R.4.png", price: "¥1,299", originalPrice: "¥1,599", badge: "热卖" },
+    { name: "经典厨师机 1518", category: "厨师机", image: "/网站素材/Stand mixer/1518/SM-1518N-2.png", price: "¥1,899", badge: "新品" },
+    { name: "豪华厨师机 1533", category: "厨师机", image: "/网站素材/Stand mixer/1533/1533.691.png", price: "¥2,199" },
+    { name: "曜黑厨师机 1555BML", category: "高端厨师机", image: "/网站素材/Stand mixer/1555BML/SM-1555BM-1.png", price: "¥1,499", originalPrice: "¥1,899", badge: "-20%" },
   ]
 
   const newArrivalProducts = [
-    { name: "手持搅拌机 SM-2545", category: "手持搅拌机", image: "https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=600&q=80", price: "¥599", badge: "新品" },
-    { name: "多功能料理机 SM-2544", category: "料理机", image: "https://images.unsplash.com/photo-1585515320310-259814833e62?w=600&q=80", price: "¥1,699" },
-    { name: "迷你搅拌机 SM-2543", category: "小型厨房电器", image: "https://images.unsplash.com/photo-1594385208974-2e75f8d7bb48?w=600&q=80", price: "¥399", originalPrice: "¥499" },
-    { name: "专业料理套装 SM-2542", category: "料理机组合", image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80", price: "¥2,999", badge: "限量" },
+    { name: "手持打蛋器 HM-3052", category: "打蛋器", image: "/网站素材/egg beater/HM-3052.png", price: "¥299", badge: "新品" },
+    { name: "智能研磨机 GR-3402", category: "研磨机", image: "/网站素材/grinder/3402.1661.png", price: "¥499" },
+    { name: "便携打蛋器 HM-3041", category: "打蛋器", image: "/网站素材/egg beater/HM-3041.png", price: "¥199", originalPrice: "¥269" },
+    { name: "至尊研磨套装 GR-3453", category: "研磨机", image: "/网站素材/grinder/3453.1759.png", price: "¥699", badge: "限量" },
   ]
 
   return (
