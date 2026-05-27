@@ -182,21 +182,21 @@ function HeroSection() {
       title: "Phantom",
       subtitle: "Aurora Realm",
       accent: "Forward Aesthetics",
-      description: "A flowing fusion of violet and blue, injecting avant-garde inspiration into modern kitchens. Make every culinary creation a visual feast.",
+      description: "Vibrant violet & blue fusion bringing avant-garde style and infinite inspiration to modern kitchens.",
       image: "/网站素材/其他素材(选着使用）/紫+蓝(1).jpg",
     },
     {
       title: "Surge",
       subtitle: "Fiery Craftsmanship",
       accent: "Extreme Performance",
-      description: "Vibrant crimson red, packing an incredible 1500W of mixing power. Redefining culinary possibilities with pure passion.",
+      description: "Vibrant crimson red packing 1500W of dynamic power to redefine culinary art with pure passion.",
       image: "/网站素材/其他素材(选着使用）/红2(1).jpg",
     },
     {
       title: "Obsidian",
       subtitle: "Deep Purity",
       accent: "Luxury Experience",
-      description: "Intensely deep obsidian black textures, exuding subtle elegance. Germanic minimal geometric aesthetics honoring a pure lifestyle.",
+      description: "Elegant obsidian black exuding subtle luxury. Germanic minimal aesthetics honoring a pure lifestyle.",
       image: "/网站素材/其他素材(选着使用）/黑色(1).jpg",
     },
   ]
@@ -557,7 +557,7 @@ function ProductsSection({ title, subtitle, products }: {
         <SectionHeader
           subtitle={subtitle}
           title={title}
-          description="Carefully selected premium kitchen appliances bringing convenience and elegance to your daily life."
+          description="Curated premium appliances bringing convenience and elegance to your kitchen."
         />
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 lg:gap-8">
@@ -617,7 +617,7 @@ function FeaturedBanner() {
                 transition={{ delay: 0.4 }}
                 className="text-background/80 text-sm md:text-base hidden md:block"
               >
-                Equipped with next-gen smart constant temp control and a 5L heavy-duty precision bowl. Low-noise and high-efficiency kneading to unleash the original aroma of ingredients. Enjoy a limited-time artistic indulgence.
+                Smart temp control meets quiet, high-efficiency 5L kneading to unleash authentic culinary aromas.
               </motion.p>
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
@@ -655,7 +655,7 @@ function CategoryGrid() {
         <SectionHeader
           subtitle="Product Categories"
           title="Shop by Category"
-          description="Browse our carefully classified product collections to find the perfect kitchen appliance for your needs."
+          description="Browse our curated collections to find the perfect kitchen appliance for your needs."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
@@ -705,15 +705,15 @@ function Footer() {
             transition={{ duration: 0.5 }}
             className="col-span-2 md:col-span-1 space-y-4"
           >
-            <h3 className="text-xl md:text-2xl font-serif font-bold">REECON</h3>
+            <h3 className="text-xl md:text-2xl font-serif font-bold"></h3>
             <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
-              With 15 years of deep European market experience and vertically integrated manufacturing, we provide high-quality, high-value smart home appliances for global consumers.
+              15 years of European market expertise, delivering premium, value-driven smart appliances globally.
             </p>
           </motion.div>
 
           {[
             { title: "Categories", links: ["Stand Mixers", "Food Processors", "Grinders", "Hand Mixers"] },
-            { title: "Customer Service", links: ["Contact Us", "Shipping Info", "Returns & Exchanges", "FAQs"] },
+            { title: "Customer Service", links: ["Contact Us", "Shipping Info", "Returns", "FAQs"] },
             { title: "About Us", links: ["Our Story", "News & Updates", "Careers", "Privacy Policy"] },
           ].map((section, i) => (
             <motion.div
@@ -747,7 +747,7 @@ function Footer() {
           className="border-t border-border mt-8 md:mt-12 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="text-xs md:text-sm text-muted-foreground text-center md:text-left">
-            © 2024 REECON TRADE LIMITED. All rights reserved.
+            © 2024  TRADE LIMITED. All rights reserved.
           </p>
           <div className="flex gap-3 md:gap-4">
             {["VISA", "MC", "PayPal", "AMEX"].map((card) => (
@@ -769,17 +769,17 @@ function Footer() {
 // Main Page Component
 export default function HomePage() {
   const bestSellerProducts = [
-    { name: "Flagship Stand Mixer 1511R", category: "Stand Mixer", image: "/网站素材/Stand mixer/1511-1R/1511-1R.4.png", price: "$1,299", originalPrice: "$1,599", badge: "Best Seller" },
-    { name: "Classic Stand Mixer 1518", category: "Stand Mixer", image: "/网站素材/Stand mixer/1518/SM-1518N-2.png", price: "$1,899", badge: "New" },
-    { name: "Deluxe Stand Mixer 1533", category: "Stand Mixer", image: "/网站素材/Stand mixer/1533/1533.691.png", price: "$2,199" },
-    { name: "Obsidian Stand Mixer 1555BML", category: "Premium Stand Mixer", image: "/网站素材/Stand mixer/1555BML/SM-1555BM-1.png", price: "$1,499", originalPrice: "$1,899", badge: "-20%" },
+    { name: "Flagship Mixer 1511R", category: "Mixer", image: "/网站素材/Stand mixer/1511-1R/1511-1R.4.png", price: "$1,299", originalPrice: "$1,599", badge: "Best Seller" },
+    { name: "Classic Mixer 1518", category: "Mixer", image: "/网站素材/Stand mixer/1518/SM-1518N-2.png", price: "$1,899", badge: "New" },
+    { name: "Deluxe Mixer 1533", category: "Mixer", image: "/网站素材/Stand mixer/1533/1533.691.png", price: "$2,199" },
+    { name: "Obsidian Mixer 1555BML", category: "Premium Mixer", image: "/网站素材/Stand mixer/1555BML/SM-1555BM-1.png", price: "$1,499", originalPrice: "$1,899", badge: "-20%" },
   ]
 
   const newArrivalProducts = [
-    { name: "Handheld Egg Beater HM-3052", category: "Egg Beater", image: "/网站素材/egg beater/HM-3052.png", price: "$299", badge: "New" },
+    { name: "Hand Mixer HM-3052", category: "Mixer", image: "/网站素材/egg beater/HM-3052.png", price: "$299", badge: "New" },
     { name: "Smart Grinder GR-3402", category: "Grinder", image: "/网站素材/grinder/3402.1661.png", price: "$499" },
-    { name: "Portable Egg Beater HM-3041", category: "Egg Beater", image: "/网站素材/egg beater/HM-3041.png", price: "$199", originalPrice: "$269" },
-    { name: "Supreme Grinding Set GR-3453", category: "Grinder", image: "/网站素材/grinder/3453.1759.png", price: "$699", badge: "Limited" },
+    { name: "Portable Mixer HM-3041", category: "Mixer", image: "/网站素材/egg beater/HM-3041.png", price: "$199", originalPrice: "$269" },
+    { name: "Supreme Grinder GR-3453", category: "Grinder", image: "/网站素材/grinder/3453.1759.png", price: "$699", badge: "Limited" },
   ]
 
   return (
