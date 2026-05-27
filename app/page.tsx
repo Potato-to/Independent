@@ -7,10 +7,10 @@ import { Heart, Search, ShoppingCart, User, ChevronLeft, ChevronRight, Truck, Gi
 // Announcement Bar Component with infinite scroll
 function AnnouncementBar() {
   const announcements = [
-    { icon: Truck, text: "全球免费配送" },
-    { icon: Gift, text: "新客户享30%折扣" },
-    { icon: Shield, text: "免税购物" },
-    { icon: Users, text: "20,000+ 满意客户" },
+    { icon: Truck, text: "Free Worldwide Shipping" },
+    { icon: Gift, text: "New Customers Save 30%" },
+    { icon: Shield, text: "Duty-Free Shopping" },
+    { icon: Users, text: "20,000+ Happy Customers" },
   ]
 
   return (
@@ -49,7 +49,7 @@ function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navItems = ["首页", "商店", "关于我们", "联系我们"]
+  const navItems = ["Home", "Shop", "About Us", "Contact Us"]
 
   return (
     <>
@@ -179,24 +179,24 @@ function HeroSection() {
 
   const slides = [
     {
-      title: "幻影",
-      subtitle: "极光之境",
-      accent: "前瞻美学",
-      description: "紫蓝交融的流光艺术，为现代厨房注入无限前卫灵感。让每次烹饪都成为一场视觉盛宴。",
+      title: "Phantom",
+      subtitle: "Aurora Realm",
+      accent: "Forward Aesthetics",
+      description: "A flowing fusion of violet and blue, injecting avant-garde inspiration into modern kitchens. Make every culinary creation a visual feast.",
       image: "/网站素材/其他素材(选着使用）/紫+蓝(1).jpg",
     },
     {
-      title: "澎湃",
-      subtitle: "炽热匠心",
-      accent: "极致性能",
-      description: "炽热的正红色泽，蕴含高达1500W的澎湃搅拌动力。用激情重塑食物的无限可能。",
+      title: "Surge",
+      subtitle: "Fiery Craftsmanship",
+      accent: "Extreme Performance",
+      description: "Vibrant crimson red, packing an incredible 1500W of mixing power. Redefining culinary possibilities with pure passion.",
       image: "/网站素材/其他素材(选着使用）/红2(1).jpg",
     },
     {
-      title: "曜境",
-      subtitle: "深邃纯粹",
-      accent: "臻品奢享",
-      description: "极致深邃的曜黑质感，低调中尽显奢华。德系简约几何美学，致敬纯粹生活方式。",
+      title: "Obsidian",
+      subtitle: "Deep Purity",
+      accent: "Luxury Experience",
+      description: "Intensely deep obsidian black textures, exuding subtle elegance. Germanic minimal geometric aesthetics honoring a pure lifestyle.",
       image: "/网站素材/其他素材(选着使用）/黑色(1).jpg",
     },
   ]
@@ -237,7 +237,7 @@ function HeroSection() {
                   transition={{ delay: 0.1, duration: 0.5 }}
                   className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-muted-foreground"
                 >
-                  精选系列
+                  Featured Collection
                 </motion.p>
 
                 <motion.h1
@@ -286,7 +286,7 @@ function HeroSection() {
               whileTap={{ scale: 0.95 }}
               className="group bg-primary text-primary-foreground px-5 md:px-6 py-2.5 md:py-3 rounded-lg font-medium flex items-center gap-2 mx-auto md:mx-0 overflow-hidden relative text-sm"
             >
-              <span className="relative z-10">查看促销商品</span>
+              <span className="relative z-10">Shop Promotions</span>
               <motion.div
                 className="absolute inset-0 bg-foreground"
                 initial={{ x: "-100%" }}
@@ -499,7 +499,7 @@ function ProductCard({
             className="flex items-center gap-2 bg-background text-foreground px-4 md:px-6 py-2 md:py-3 rounded-full font-medium text-xs md:text-sm shadow-lg"
           >
             <ShoppingCart className="w-3 h-3 md:w-4 md:h-4" />
-            加入购物车
+            Add to Cart
           </motion.button>
         </motion.div>
 
@@ -557,7 +557,7 @@ function ProductsSection({ title, subtitle, products }: {
         <SectionHeader
           subtitle={subtitle}
           title={title}
-          description="精心挑选的高品质厨房电器，为您的生活带来便利与品质。"
+          description="Carefully selected premium kitchen appliances bringing convenience and elegance to your daily life."
         />
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 lg:gap-8">
@@ -599,7 +599,7 @@ function FeaturedBanner() {
                 transition={{ delay: 0.2 }}
                 className="inline-block px-3 py-1 bg-accent text-accent-foreground text-xs md:text-sm font-medium rounded-full"
               >
-                限时特惠
+                Limited Time Offer
               </motion.span>
               <motion.h3
                 initial={{ opacity: 0, y: 20 }}
@@ -607,9 +607,9 @@ function FeaturedBanner() {
                 transition={{ delay: 0.3 }}
                 className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-background"
               >
-                经典重塑
+                Classic Reimagined
                 <br />
-                FuFu 5L 智能厨师机
+                FuFu 5L Smart Stand Mixer
               </motion.h3>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -617,7 +617,7 @@ function FeaturedBanner() {
                 transition={{ delay: 0.4 }}
                 className="text-background/80 text-sm md:text-base hidden md:block"
               >
-                搭载新一代恒温智控系统与5升精工金刚机身，轻音高效揉面，唤醒食物最初的香气。限时尊享艺术礼遇。
+                Equipped with next-gen smart constant temp control and a 5L heavy-duty precision bowl. Low-noise and high-efficiency kneading to unleash the original aroma of ingredients. Enjoy a limited-time artistic indulgence.
               </motion.p>
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
@@ -627,7 +627,7 @@ function FeaturedBanner() {
                 whileTap={{ scale: 0.95 }}
                 className="bg-background text-foreground px-5 md:px-8 py-2.5 md:py-3 rounded-full font-medium flex items-center gap-2 text-sm md:text-base"
               >
-                立即选购
+                Shop Now
                 <ArrowRight className="w-4 h-4" />
               </motion.button>
             </div>
@@ -644,18 +644,18 @@ function CategoryGrid() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   const categories = [
-    { name: "厨师机系列", count: "24 款专业机型", image: "/网站素材/Stand mixer/1570ML/1570bm (5).png" },
-    { name: "高效研磨机", count: "18 款商用研磨", image: "/网站素材/grinder/3405.1322.png" },
-    { name: "轻便打蛋器", count: "12 款便携系列", image: "/网站素材/egg beater/3040.17.png" },
+    { name: "Stand Mixers", count: "24 Professional Models", image: "/网站素材/Stand mixer/1570ML/1570bm (5).png" },
+    { name: "Efficient Grinders", count: "18 Commercial Models", image: "/网站素材/grinder/3405.1322.png" },
+    { name: "Light Egg Beaters", count: "12 Portable Models", image: "/网站素材/egg beater/3040.17.png" },
   ]
 
   return (
     <section ref={ref} className="py-12 md:py-24 px-4 md:px-6 bg-secondary/30">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
-          subtitle="产品分类"
-          title="按类别选购"
-          description="浏览我们精心分类的产品系列，找到最适合您需求的厨房电器。"
+          subtitle="Product Categories"
+          title="Shop by Category"
+          description="Browse our carefully classified product collections to find the perfect kitchen appliance for your needs."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
@@ -705,16 +705,16 @@ function Footer() {
             transition={{ duration: 0.5 }}
             className="col-span-2 md:col-span-1 space-y-4"
           >
-            <h3 className="text-xl md:text-2xl font-serif font-bold"></h3>
+            <h3 className="text-xl md:text-2xl font-serif font-bold">REECON</h3>
             <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
-              拥有15年的欧洲市场经验，垂直整合制造，为全球消费者提供高品质、高性价比的智能家居电器。
+              With 15 years of deep European market experience and vertically integrated manufacturing, we provide high-quality, high-value smart home appliances for global consumers.
             </p>
           </motion.div>
 
           {[
-            { title: "产品分类", links: ["搅拌机", "料理机", "食品加工机", "手持搅拌机"] },
-            { title: "客户服务", links: ["联系我们", "配送信息", "退换货政策", "常见问题"] },
-            { title: "关于我们", links: ["品牌故事", "新闻动态", "加入我们", "隐私政策"] },
+            { title: "Categories", links: ["Stand Mixers", "Food Processors", "Grinders", "Hand Mixers"] },
+            { title: "Customer Service", links: ["Contact Us", "Shipping Info", "Returns & Exchanges", "FAQs"] },
+            { title: "About Us", links: ["Our Story", "News & Updates", "Careers", "Privacy Policy"] },
           ].map((section, i) => (
             <motion.div
               key={section.title}
@@ -747,7 +747,7 @@ function Footer() {
           className="border-t border-border mt-8 md:mt-12 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="text-xs md:text-sm text-muted-foreground text-center md:text-left">
-            2024 REECON TRADE LIMITED 版权所有
+            © 2024 REECON TRADE LIMITED. All rights reserved.
           </p>
           <div className="flex gap-3 md:gap-4">
             {["VISA", "MC", "PayPal", "AMEX"].map((card) => (
@@ -769,17 +769,17 @@ function Footer() {
 // Main Page Component
 export default function HomePage() {
   const bestSellerProducts = [
-    { name: "旗舰厨师机 1511R", category: "厨师机", image: "/网站素材/Stand mixer/1511-1R/1511-1R.4.png", price: "¥1,299", originalPrice: "¥1,599", badge: "热卖" },
-    { name: "经典厨师机 1518", category: "厨师机", image: "/网站素材/Stand mixer/1518/SM-1518N-2.png", price: "¥1,899", badge: "新品" },
-    { name: "豪华厨师机 1533", category: "厨师机", image: "/网站素材/Stand mixer/1533/1533.691.png", price: "¥2,199" },
-    { name: "曜黑厨师机 1555BML", category: "高端厨师机", image: "/网站素材/Stand mixer/1555BML/SM-1555BM-1.png", price: "¥1,499", originalPrice: "¥1,899", badge: "-20%" },
+    { name: "Flagship Stand Mixer 1511R", category: "Stand Mixer", image: "/网站素材/Stand mixer/1511-1R/1511-1R.4.png", price: "$1,299", originalPrice: "$1,599", badge: "Best Seller" },
+    { name: "Classic Stand Mixer 1518", category: "Stand Mixer", image: "/网站素材/Stand mixer/1518/SM-1518N-2.png", price: "$1,899", badge: "New" },
+    { name: "Deluxe Stand Mixer 1533", category: "Stand Mixer", image: "/网站素材/Stand mixer/1533/1533.691.png", price: "$2,199" },
+    { name: "Obsidian Stand Mixer 1555BML", category: "Premium Stand Mixer", image: "/网站素材/Stand mixer/1555BML/SM-1555BM-1.png", price: "$1,499", originalPrice: "$1,899", badge: "-20%" },
   ]
 
   const newArrivalProducts = [
-    { name: "手持打蛋器 HM-3052", category: "打蛋器", image: "/网站素材/egg beater/HM-3052.png", price: "¥299", badge: "新品" },
-    { name: "智能研磨机 GR-3402", category: "研磨机", image: "/网站素材/grinder/3402.1661.png", price: "¥499" },
-    { name: "便携打蛋器 HM-3041", category: "打蛋器", image: "/网站素材/egg beater/HM-3041.png", price: "¥199", originalPrice: "¥269" },
-    { name: "至尊研磨套装 GR-3453", category: "研磨机", image: "/网站素材/grinder/3453.1759.png", price: "¥699", badge: "限量" },
+    { name: "Handheld Egg Beater HM-3052", category: "Egg Beater", image: "/网站素材/egg beater/HM-3052.png", price: "$299", badge: "New" },
+    { name: "Smart Grinder GR-3402", category: "Grinder", image: "/网站素材/grinder/3402.1661.png", price: "$499" },
+    { name: "Portable Egg Beater HM-3041", category: "Egg Beater", image: "/网站素材/egg beater/HM-3041.png", price: "$199", originalPrice: "$269" },
+    { name: "Supreme Grinding Set GR-3453", category: "Grinder", image: "/网站素材/grinder/3453.1759.png", price: "$699", badge: "Limited" },
   ]
 
   return (
@@ -788,15 +788,15 @@ export default function HomePage() {
       <Navigation />
       <HeroSection />
       <ProductsSection
-        title="畅销产品"
-        subtitle="热门推荐"
+        title="Best Sellers"
+        subtitle="Hot Recommendations"
         products={bestSellerProducts}
       />
       <FeaturedBanner />
       <CategoryGrid />
       <ProductsSection
-        title="新品上市"
-        subtitle="最新系列"
+        title="New Arrivals"
+        subtitle="Latest Collections"
         products={newArrivalProducts}
       />
       <Footer />
