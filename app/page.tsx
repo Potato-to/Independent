@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
-import { Heart, Search, ShoppingCart, User, ChevronLeft, ChevronRight, Truck, Gift, Shield, Users, ArrowRight, Menu, X } from "lucide-react"
+import { Heart, Search, ShoppingCart, User, ChevronLeft, ChevronRight, Truck, Gift, Shield, Users, Menu, X } from "lucide-react"
 
 // Announcement Bar Component with infinite scroll
 function AnnouncementBar() {
@@ -60,7 +60,7 @@ function Navigation() {
         className={`${isSticky ? "fixed top-0 left-0 right-0" : "relative"} z-50 transition-all duration-300 ${isSticky ? "bg-background/95 backdrop-blur-xl shadow-lg" : "bg-background"
           }`}
       >
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-1 md:py-2 flex items-center justify-between">
         {/* Left icons */}
         <div className="flex items-center gap-2 md:gap-4">
           <motion.button
@@ -165,9 +165,21 @@ function Navigation() {
   )
 }
 
-// Hero Section with parallax and responsive carousel
+// Hero Section with parallax and responsive banner images
 function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const images = [
+    "/网站素材/Banner/1.jpg",
+    "/网站素材/Banner/2.jpg"
+  ]
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % images.length)
+    }, 6000)
+    return () => clearInterval(timer)
+  }, [currentSlide])
+
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -177,213 +189,80 @@ function HeroSection() {
   const y = useTransform(scrollYProgress, [0, 1], [0, 150])
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
 
-  const slides = [
-    {
-      title: "Phantom",
-      subtitle: "Aurora Realm",
-      accent: "Forward Aesthetics",
-      description: "Vibrant violet & blue fusion bringing avant-garde style and infinite inspiration to modern kitchens.",
-      image: "/网站素材/其他素材(选着使用）/紫+蓝(1).jpg",
-    },
-    {
-      title: "Surge",
-      subtitle: "Fiery Craftsmanship",
-      accent: "Extreme Performance",
-      description: "Vibrant crimson red packing 1500W of dynamic power to redefine culinary art with pure passion.",
-      image: "/网站素材/其他素材(选着使用）/红2(1).jpg",
-    },
-    {
-      title: "Obsidian",
-      subtitle: "Deep Purity",
-      accent: "Luxury Experience",
-      description: "Elegant obsidian black exuding subtle luxury. Germanic minimal aesthetics honoring a pure lifestyle.",
-      image: "/网站素材/其他素材(选着使用）/黑色(1).jpg",
-    },
-  ]
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 6000)
-    return () => clearInterval(timer)
-  }, [slides.length])
-
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length)
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % images.length)
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + images.length) % images.length)
 
   return (
-    <section ref={containerRef} className="relative min-h-[75vh] md:min-h-[80vh] overflow-hidden">
-      <motion.div style={{ y, opacity }} className="absolute inset-0 bg-secondary" />
+    <section ref={containerRef} className="relative w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-4 md:py-8">
+      <div 
+        className="relative overflow-hidden h-[45vh] sm:h-[60vh] md:h-[70vh] lg:h-[78vh] w-full rounded-xl md:rounded-2xl border border-border/40 bg-secondary/20 isolate"
+        style={{ transform: "translate3d(0, 0, 0)", WebkitMaskImage: "-webkit-radial-gradient(white, black)" }}
+      >
+        
+        {/* Parallax image container */}
+        <motion.div style={{ y, opacity }} className="absolute inset-0 w-full h-full">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={currentSlide}
+              src={images[currentSlide]}
+              alt={`Premium Kitchen Appliance Banner ${currentSlide + 1}`}
+              initial={{ scale: 1.05, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.98, opacity: 0 }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full h-full object-cover"
+            />
+          </AnimatePresence>
+        </motion.div>
 
-      <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-6 md:py-16 lg:py-20 h-full">
-        {/* Mobile Layout: Text on top, Image below */}
-        <div className="flex flex-col md:grid md:grid-cols-5 gap-6 md:gap-8 lg:gap-12 items-center h-full">
+        {/* Elegant vignette overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/30 pointer-events-none" />
 
-          {/* Content - First on mobile, left on desktop (2 columns) */}
-          <div className="space-y-4 md:space-y-6 order-1 text-center md:text-left md:col-span-2">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentSlide}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                className="space-y-1 md:space-y-2"
-              >
-                {/* Layered typography for hierarchy */}
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1, duration: 0.5 }}
-                  className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-muted-foreground"
-                >
-                  Featured Collection
-                </motion.p>
-
-                <motion.h1
-                  initial={{ opacity: 0, x: -30, rotateX: 45 }}
-                  animate={{ opacity: 1, x: 0, rotateX: 0 }}
-                  transition={{ delay: 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground leading-none"
-                >
-                  {slides[currentSlide].title}
-                </motion.h1>
-
-                <motion.h2
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.25, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-2xl md:text-3xl lg:text-4xl font-serif text-muted-foreground leading-none"
-                >
-                  {slides[currentSlide].subtitle}
-                </motion.h2>
-
-                <motion.span
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.35, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="block text-xl md:text-2xl lg:text-3xl font-serif font-medium text-primary leading-none"
-                >
-                  {slides[currentSlide].accent}
-                </motion.span>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.45, duration: 0.5 }}
-                  className="text-xs md:text-sm text-muted-foreground pt-2 md:pt-4 max-w-xs mx-auto md:mx-0"
-                >
-                  {slides[currentSlide].description}
-                </motion.p>
-              </motion.div>
-            </AnimatePresence>
-
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group bg-primary text-primary-foreground px-5 md:px-6 py-2.5 md:py-3 rounded-lg font-medium flex items-center gap-2 mx-auto md:mx-0 overflow-hidden relative text-sm"
-            >
-              <span className="relative z-10">Shop Promotions</span>
-              <motion.div
-                className="absolute inset-0 bg-foreground"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: 0 }}
-                transition={{ duration: 0.3 }}
-              />
-              <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
-
-            {/* Slide indicators */}
-            <div className="flex justify-center md:justify-start gap-3 pt-2 md:pt-4">
-              {slides.map((_, i) => (
-                <motion.button
-                  key={i}
-                  onClick={() => setCurrentSlide(i)}
-                  className="flex items-center gap-1.5"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  <span className="text-[10px] md:text-xs font-medium text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
-                  <motion.div
-                    className="h-0.5 bg-foreground rounded-full"
-                    initial={{ width: 20 }}
-                    animate={{
-                      width: currentSlide === i ? 36 : 20,
-                      opacity: currentSlide === i ? 1 : 0.3
-                    }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.button>
-              ))}
-            </div>
-          </div>
-
-          {/* Image - Second on mobile, right on desktop (3 columns) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full order-2 md:col-span-3"
+        {/* Glassmorphic Arrows */}
+        <div className="absolute inset-x-4 md:inset-x-8 top-1/2 -translate-y-1/2 flex justify-between z-10 pointer-events-none">
+          <motion.button
+            whileHover={{ scale: 1.1, x: -4 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={prevSlide}
+            className="w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 backdrop-blur-md flex items-center justify-center border border-white/15 text-white shadow-[0_8px_32px_rgba(0,0,0,0.2)] transition-colors pointer-events-auto cursor-pointer"
           >
-            <motion.div
-              className="relative rounded-2xl md:rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl"
-            >
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={currentSlide}
-                  src={slides[currentSlide].image}
-                  alt="Premium interior"
-                  initial={{ opacity: 0, scale: 1.1 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.7 }}
-                  className="w-full h-[50vh] md:h-[58vh] object-cover"
-                />
-              </AnimatePresence>
-
-              {/* Floating elements - Hidden on mobile */}
-              <motion.div
-                animate={{
-                  y: [0, -10, 0],
-                  rotate: [0, 5, 0]
-                }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="hidden lg:block absolute top-10 right-10 w-20 h-20 bg-accent/30 backdrop-blur-md rounded-2xl"
-              />
-              <motion.div
-                animate={{
-                  y: [0, 10, 0],
-                  rotate: [0, -5, 0]
-                }}
-                transition={{ duration: 5, repeat: Infinity }}
-                className="hidden lg:block absolute bottom-10 left-10 w-16 h-16 bg-primary/20 backdrop-blur-md rounded-full"
-              />
-
-
-            </motion.div>
-          </motion.div>
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.1, x: 4 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={nextSlide}
+            className="w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 backdrop-blur-md flex items-center justify-center border border-white/15 text-white shadow-[0_8px_32px_rgba(0,0,0,0.2)] transition-colors pointer-events-auto cursor-pointer"
+          >
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+          </motion.button>
         </div>
-      </div>
-      {/* Navigation Arrows - Inside image on all screens */}
-      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-3 md:px-4">
-        <motion.button
-          whileHover={{ scale: 1.1, x: -3 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={prevSlide}
-          className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center shadow-lg"
-        >
-          <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
-        </motion.button>
-        <motion.button
-          whileHover={{ scale: 1.1, x: 3 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={nextSlide}
-          className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center shadow-lg"
-        >
-          <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
-        </motion.button>
+
+        {/* Minimalist Progress Indicators */}
+        <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3 z-10">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentSlide(i)}
+              className="h-3 flex items-center group relative cursor-pointer"
+            >
+              <div
+                className="h-1 rounded-full bg-white/25 transition-all duration-300 relative overflow-hidden"
+                style={{ width: currentSlide === i ? "48px" : "16px" }}
+              >
+                {currentSlide === i && (
+                  <motion.div
+                    key={currentSlide}
+                    initial={{ width: "0%" }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 6, ease: "linear" }}
+                    className="absolute top-0 left-0 bottom-0 bg-white"
+                  />
+                )}
+              </div>
+            </button>
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -582,56 +461,13 @@ function FeaturedBanner() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="relative rounded-2xl md:rounded-3xl overflow-hidden"
+          className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-border/40"
         >
           <img
-            src="/网站素材/FuFu/SLD-CM-2503-5L.7.png"
+            src="/网站素材/1.jpg"
             alt="Featured collection"
             className="w-full h-[300px] md:h-[450px] object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/40 to-transparent" />
-
-          <div className="absolute inset-0 flex items-center">
-            <div className="px-6 md:px-16 max-w-lg space-y-3 md:space-y-6">
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.2 }}
-                className="inline-block px-3 py-1 bg-accent text-accent-foreground text-xs md:text-sm font-medium rounded-full"
-              >
-                Limited Time Offer
-              </motion.span>
-              <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.3 }}
-                className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-background"
-              >
-                Classic Reimagined
-                <br />
-                FuFu 5L Smart Stand Mixer
-              </motion.h3>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.4 }}
-                className="text-background/80 text-sm md:text-base hidden md:block"
-              >
-                Smart temp control meets quiet, high-efficiency 5L kneading to unleash authentic culinary aromas.
-              </motion.p>
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.5 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-background text-foreground px-5 md:px-8 py-2.5 md:py-3 rounded-full font-medium flex items-center gap-2 text-sm md:text-base"
-              >
-                Shop Now
-                <ArrowRight className="w-4 h-4" />
-              </motion.button>
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>
@@ -644,9 +480,9 @@ function CategoryGrid() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   const categories = [
-    { name: "Stand Mixers", count: "24 Professional Models", image: "/网站素材/Stand mixer/1570ML/1570bm (5).png" },
-    { name: "Efficient Grinders", count: "18 Commercial Models", image: "/网站素材/grinder/3405.1322.png" },
-    { name: "Light Egg Beaters", count: "12 Portable Models", image: "/网站素材/egg beater/3040.17.png" },
+    { name: "Stand Mixers", image: "/网站素材/Stand mixer/1570ML/1570bm (5).png" },
+    { name: "Efficient Grinders", image: "/网站素材/grinder/3405.1322.png" },
+    { name: "Light Egg Beaters", image: "/网站素材/egg beater/3040.17.png" },
   ]
 
   return (
@@ -769,17 +605,17 @@ function Footer() {
 // Main Page Component
 export default function HomePage() {
   const bestSellerProducts = [
-    { name: "Flagship Mixer 1511R", category: "Mixer", image: "/网站素材/Stand mixer/1511-1R/1511-1R.4.png", price: "$1,299", originalPrice: "$1,599", badge: "Best Seller" },
-    { name: "Classic Mixer 1518", category: "Mixer", image: "/网站素材/Stand mixer/1518/SM-1518N-2.png", price: "$1,899", badge: "New" },
-    { name: "Deluxe Mixer 1533", category: "Mixer", image: "/网站素材/Stand mixer/1533/1533.691.png", price: "$2,199" },
-    { name: "Obsidian Mixer 1555BML", category: "Premium Mixer", image: "/网站素材/Stand mixer/1555BML/SM-1555BM-1.png", price: "$1,499", originalPrice: "$1,899", badge: "-20%" },
+    { name: "Milk Frother", image: "/网站素材/1（milk frother）.png" },
+    { name: "FUFU", image: "/网站素材/2（FUFU）.png"},
+    { name: "Juicer", image: "/网站素材/3（juicer）.png" },
+    { name: "Centrifugal Juicer", image: "/网站素材/4（Centrifugal juicer）.png" },
   ]
 
   const newArrivalProducts = [
-    { name: "Hand Mixer HM-3052", category: "Mixer", image: "/网站素材/egg beater/HM-3052.png", price: "$299", badge: "New" },
-    { name: "Smart Grinder GR-3402", category: "Grinder", image: "/网站素材/grinder/3402.1661.png", price: "$499" },
-    { name: "Portable Mixer HM-3041", category: "Mixer", image: "/网站素材/egg beater/HM-3041.png", price: "$199", originalPrice: "$269" },
-    { name: "Supreme Grinder GR-3453", category: "Grinder", image: "/网站素材/grinder/3453.1759.png", price: "$699", badge: "Limited" },
+    { name: "Hand Mixer", image: "/网站素材/egg beater/HM-3052.png"},
+    { name: "Smart Grinder", image: "/网站素材/grinder/3402.1661.png"},
+    { name: "Portable Mixer", image: "/网站素材/egg beater/HM-3041.png"},
+    { name: "Supreme Grinder", image: "/网站素材/grinder/3453.1759.png"},
   ]
 
   return (

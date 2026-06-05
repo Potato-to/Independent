@@ -16,8 +16,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'REECON',
-  description: 'REECON',
+  title: 'Charmlong',
+  description: 'Charmlong',
   generator: 'independent.app',
   icons: {
     icon: [
