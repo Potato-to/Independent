@@ -201,16 +201,16 @@ function HeroSection() {
         
         {/* Parallax image container */}
         <motion.div style={{ y, opacity }} className="absolute inset-0 w-full h-full">
-          <AnimatePresence mode="wait">
+          <AnimatePresence>
             <motion.img
               key={currentSlide}
-              src={images[currentSlide]}
+              src={encodeURI(images[currentSlide])}
               alt={`Premium Kitchen Appliance Banner ${currentSlide + 1}`}
               initial={{ scale: 1.05, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.98, opacity: 0 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
             />
           </AnimatePresence>
         </motion.div>
@@ -358,7 +358,7 @@ function ProductCard({
         )}
 
         <motion.img
-          src={image}
+          src={encodeURI(image)}
           alt={name}
           className="w-full h-full object-cover"
           whileHover={{ scale: 1.08 }}
@@ -464,7 +464,7 @@ function FeaturedBanner() {
           className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-lg border border-border/40"
         >
           <img
-            src="/网站素材/1.jpg"
+            src={encodeURI("/网站素材/1.jpg")}
             alt="Featured collection"
             className="w-full h-[300px] md:h-[450px] object-cover"
           />
@@ -504,7 +504,7 @@ function CategoryGrid() {
               className="group relative rounded-xl md:rounded-2xl overflow-hidden cursor-pointer"
             >
               <motion.img
-                src={category.image}
+                src={encodeURI(category.image)}
                 alt={category.name}
                 className="w-full h-[200px] md:h-[300px] object-cover"
                 whileHover={{ scale: 1.1 }}
